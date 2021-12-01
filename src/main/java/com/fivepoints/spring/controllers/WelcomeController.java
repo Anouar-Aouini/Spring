@@ -1,12 +1,12 @@
 package com.fivepoints.spring.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("posts")
 public class WelcomeController {
-    @GetMapping(path="/welcome")
+    @RequestMapping(value = "/welcome",  method = RequestMethod.GET)
+    @ResponseBody
     public String hello(){
         return "Hello world";
     }
