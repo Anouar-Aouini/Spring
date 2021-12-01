@@ -1,25 +1,32 @@
 package com.fivepoints.spring.models;
 
-public class User {
-    String firstName;
-    String lastName;
-    String password;
-    String email;
-    Integer id;
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name="users")
+public class User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @Column(name= "firstName")
+    private String firstName;
+    @Column(name= "lastName")
+    private String lastName;
+    @Column(name= "email")
+    private String email;
+    @Column(name= "password")
+    private String password;
+
+    public User(){}
+
 
     public User(String firstName, String lastName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getFirstName() {
