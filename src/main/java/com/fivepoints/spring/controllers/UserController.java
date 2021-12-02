@@ -9,14 +9,14 @@ import java.util.List;
 
 @RestController
 public class UserController {
-/*
+
     @Autowired
     private UserService userService;
 
-    @GetMapping(path = "/users")
-    public List<User> getAllUsers(){
-        return this.userService.getUsers();
-    }
+//    @GetMapping(path = "/users")
+//    public List<User> getAllUsers(){
+//        return this.userService.getUsers();
+//    }
 
     @GetMapping(value="/users/{userId}")
     public User getUser(@PathVariable("userId") int userId){
@@ -35,5 +35,5 @@ public class UserController {
     public MessageResponse deleteUser(@PathVariable("userId") int userId){
          return this.userService.deleteUserById(userId);
     }
-*/
+
 }

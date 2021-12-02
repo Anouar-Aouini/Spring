@@ -1,22 +1,25 @@
 package com.fivepoints.spring.services;
 
-import com.fivepoints.spring.repositories.UserRepository;
 import com.fivepoints.spring.models.User;
 import com.fivepoints.spring.payload.responses.MessageResponse;
+import com.fivepoints.spring.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 @Service
-public class UserService {
-/*    @Autowired
+public class UserService extends SpringBootServletInitializer {
+    @Autowired
     UserRepository userRepository;
 
-    public List<User> getUsers(){
-        return this.userRepository.findAll();
-    }
+//    public List<User> getUsers(){
+//        return List<User> users=(List<User>) userRepository.findAll();
+//    }
+
     public User getUserById(int id) { return this.userRepository.findById(id).orElse(null); }
     public User addNewUser(User user) { return this.userRepository.save(user);}
     public MessageResponse updateUserById(int id , User user){
@@ -33,5 +36,5 @@ public class UserService {
     public MessageResponse deleteUserById(int id){
         this.userRepository.deleteById(id);
         return new MessageResponse("User deleted successfully");
-    }*/
+    }
 }

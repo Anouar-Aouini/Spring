@@ -1,9 +1,18 @@
 package com.fivepoints.spring.repositories;
 
-import com.fivepoints.spring.models.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserRepository extends JpaRepository<User,Integer> {
+import com.fivepoints.spring.services.*;
+import com.fivepoints.spring.models.User;
+@Repository("UserRepository")
+public interface UserRepository extends CrudRepository<User, Integer>
+{
+    List<User> findByFirstName(String firstName);
+    List<User> findByLastName(String lastName);
+
 }
