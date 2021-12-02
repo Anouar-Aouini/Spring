@@ -1,4 +1,4 @@
-package com.fivepoints.spring.Repositories;
+package com.fivepoints.spring.repositories;
 
 import com.fivepoints.spring.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

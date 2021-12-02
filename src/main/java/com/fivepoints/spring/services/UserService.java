@@ -1,6 +1,6 @@
 package com.fivepoints.spring.services;
 
-import com.fivepoints.spring.Repositories.UserRepository;
+import com.fivepoints.spring.repositories.UserRepository;
 import com.fivepoints.spring.models.User;
 import com.fivepoints.spring.payload.responses.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-    @Autowired
+/*    @Autowired
     UserRepository userRepository;
 
     public List<User> getUsers(){
@@ -33,5 +33,5 @@ public class UserService {
     public MessageResponse deleteUserById(int id){
         this.userRepository.deleteById(id);
         return new MessageResponse("User deleted successfully");
-    }
+    }*/
 }

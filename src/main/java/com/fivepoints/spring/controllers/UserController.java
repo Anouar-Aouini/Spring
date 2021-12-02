@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 public class UserController {
-
+/*
     @Autowired
     private UserService userService;
 
@@ -35,5 +35,5 @@ public class UserController {
     public MessageResponse deleteUser(@PathVariable("userId") int userId){
          return this.userService.deleteUserById(userId);
     }
-
+*/
 }
