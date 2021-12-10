@@ -1,14 +1,13 @@
 package com.fivepoints.spring.repositories;
 
-import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fivepoints.spring.models.User;
+import com.fivepoints.spring.entities.User;
 
 @Repository("UserRepository")
 public interface UserRepository extends CrudRepository<User, Integer>
 {
-    List<User> findByFirstName(String firstName);
-    List<User> findByLastName(String lastName);
+//    @Query("select c from User c where c.firstname like %?1")
+//    List<User> findByNameEndsWith(String firstName);
 }

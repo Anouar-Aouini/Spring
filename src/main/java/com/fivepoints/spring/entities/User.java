@@ -1,10 +1,9 @@
-package com.fivepoints.spring.models;
+package com.fivepoints.spring.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="users")
 public class User implements Serializable {
 
     @Id
@@ -21,14 +20,19 @@ public class User implements Serializable {
 
     public User(){}
 
-
     public User(String firstName, String lastName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
     }
+    public int getId() {
+        return id;
+    }
 
+    public void setId() {
+        this.id = id;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -37,11 +41,11 @@ public class User implements Serializable {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
