@@ -2,6 +2,8 @@ package com.fivepoints.spring.entities;
 
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,12 +15,18 @@ public class Position {
     private int p_id;
     @Column(name= "p_name")
     private String p_name;
-    @OneToMany(mappedBy = "position", cascade = CascadeType.ALL)
-    private List<User> users;
+
+
+    @OneToMany(mappedBy="id",
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch=FetchType.EAGER)
+    private List<User> users = new ArrayList<>();
 
     public Position(){}
 
-    public Position(String p_name) {
+
+
+    public Position(String p_name,List<User> users) {
         this.p_name = p_name;
     }
 
@@ -38,11 +46,4 @@ public class Position {
         this.p_name = p_name;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 }

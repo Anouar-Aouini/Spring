@@ -1,7 +1,11 @@
 package com.fivepoints.spring.entities;
 
 import javax.persistence.*;
+
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -18,18 +22,17 @@ public class User implements Serializable {
     @Column(name= "password")
     private String password;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "position_id", nullable = false,
-            referencedColumnName = "p_id")
+    @ManyToOne
     private Position position;
 
     public User(){}
 
-    public User(String firstName, String lastName, String password, String email) {
+    public User(String firstName, String lastName, String password, String email,Position position) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
+        this.position = position;
     }
     public int getId() {
         return id;
@@ -68,5 +71,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

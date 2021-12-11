@@ -1,6 +1,5 @@
 package com.fivepoints.spring.entities;
 
-
 import javax.persistence.*;
 
 @Entity
