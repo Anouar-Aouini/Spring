@@ -4,9 +4,12 @@ import com.fivepoints.spring.payload.responses.MessageResponse;
 import com.fivepoints.spring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.*;
 import java.util.List;
 
 @RestController
+@Table(name = "user")
 public class UserController {
 
     @Autowired
@@ -37,5 +40,4 @@ public class UserController {
     public MessageResponse deleteUser(@PathVariable("userId") int userId){
          return this.userService.deleteUserById(userId);
     }
-
 }

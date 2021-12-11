@@ -18,6 +18,11 @@ public class User implements Serializable {
     @Column(name= "password")
     private String password;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "position_id", nullable = false,
+            referencedColumnName = "p_id")
+    private Position position;
+
     public User(){}
 
     public User(String firstName, String lastName, String password, String email) {
