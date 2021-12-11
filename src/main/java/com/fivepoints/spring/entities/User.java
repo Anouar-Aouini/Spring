@@ -1,11 +1,10 @@
 package com.fivepoints.spring.entities;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -22,17 +21,22 @@ public class User implements Serializable {
     @Column(name= "password")
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private Account account;
+
     @ManyToOne
     private Position position;
 
     public User(){}
 
-    public User(String firstName, String lastName, String password, String email,Position position) {
+    public User(String firstName, String lastName, String password, String email,Position position,Account account) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
         this.position = position;
+        this.account=account;
     }
     public int getId() {
         return id;
@@ -75,6 +79,14 @@ public class User implements Serializable {
 
     public Position getPosition() {
         return position;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public void setPosition(Position position) {

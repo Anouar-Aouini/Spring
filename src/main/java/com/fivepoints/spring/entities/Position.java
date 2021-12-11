@@ -1,6 +1,4 @@
 package com.fivepoints.spring.entities;
-
-
 import javax.persistence.*;
 
 import java.util.ArrayList;
@@ -16,15 +14,12 @@ public class Position {
     @Column(name= "p_name")
     private String p_name;
 
-
     @OneToMany(mappedBy="id",
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             fetch=FetchType.EAGER)
     private List<User> users = new ArrayList<>();
 
     public Position(){}
-
-
 
     public Position(String p_name,List<User> users) {
         this.p_name = p_name;
